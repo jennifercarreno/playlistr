@@ -28,11 +28,9 @@ def playlists_index():
 
 
 @app.route('/playlists/new')
-def playlists_new(playlist_id):
+def playlists_new():
     """Create a new playlist."""
-    playlist = playlists.find_one({'_id': ObjectId(playlist_id)})
-    return render_template('playlists_edit.html', playlist=playlist, title='Edit Playlist')
-
+    return render_template('playlists_new.html', playlist={}, title='New Playlist')
 
 # Note the methods parameter that explicitly tells the route that this is a POST
 @app.route('/playlists', methods=['POST'])
