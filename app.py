@@ -88,4 +88,5 @@ def playlists_delete(playlist_id):
     return redirect(url_for('playlists_index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # update the below line to the following:
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
