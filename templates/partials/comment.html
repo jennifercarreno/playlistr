@@ -1,0 +1,11 @@
+<!-- templates/partials/comment.html -->
+
+<div class='card'>
+    <div class='card-block'>
+        <h4 class='card-title'>{{ comment.title }}</h4>
+        <p class='card-text'>{{ comment.content }}</p>
+    </div>
+    <div class="card-block w-100 d-flex flex-column">
+        <a href="/playlists/{{ playlist._id }}/comments/{{ comment._id }}/delete" class="btn btn-primary rounded btn-sm align-self-end">Delete</a>
+    </div>
+</div>

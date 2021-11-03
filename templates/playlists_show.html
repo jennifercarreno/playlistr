@@ -21,6 +21,9 @@
     <!-- Add your new partial here: -->
     <!-- Comment form -->
     {% include 'partials/comment_form.html' %}
-    </div>
+    {% for comment in comments %}
+    {% include 'partials/comment.html' %}
+    {% endfor %}
+ </div>
 </div>
 {% endblock %}
