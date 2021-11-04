@@ -13,26 +13,19 @@ app = Flask(__name__)
 def video_url_creator(id_lst):
     videos = []
     for vid_id in id_lst:
-        # We know that embedded YouTube videos always have this format
         video = 'https://youtube.com/embed/' + vid_id
         videos.append(video)
     return videos
 
-
-# playlists = [
-#     { 'title': 'Cat Videos', 'description': 'Cats acting weird' },
-#     { 'title': '80\'s Music', 'description': 'Don\'t stop believing!' }
-# ]
-
+# shows all playlists
 @app.route('/')
 def playlists_index():
-    """Show all playlists."""
     return render_template('playlists_index.html', playlists=playlists.find())
 
 
+# creates a new playlist
 @app.route('/playlists/new')
 def playlists_new():
-    """Create a new playlist."""
     return render_template('playlists_new.html', playlist={}, title='New Playlist')
 
 # Note the methods parameter that explicitly tells the route that this is a POST
@@ -105,6 +98,4 @@ def delete_comment(playlist_id, comment_id):
     return redirect(url_for('playlists_show', playlist_id=playlist_id))
     
 if __name__ == '__main__':
-    # update the below line to the following:
-    # app.run(debug=True)
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
